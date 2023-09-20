@@ -71,8 +71,9 @@ public class PurchasesController {
     }
 
     @GetMapping("/byUserId")
-    public List<ExtendedPurchase> getAllPurchasesByUserId(@RequestParam("userId") int userId) throws ApplicationException {
-        List<ExtendedPurchase> purchaseList = purchaseLogic.getAllPurchasesByUserId(userId);
+    public List<ExtendedPurchase> getAllPurchasesByUserId(@RequestParam("userId") String userId) throws ApplicationException {
+        int userIdInt = Integer.parseInt(userId);
+        List<ExtendedPurchase> purchaseList = purchaseLogic.getAllPurchasesByUserId(userIdInt);
         return purchaseList;
     }
 

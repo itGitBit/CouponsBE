@@ -30,7 +30,7 @@ public interface IPurchasesDal extends CrudRepository<PurchaseEntity,Integer> {
     List<ExtendedPurchase> getAllPurchasesByEndDateRange(Date startDate, Date endDate);
 
     @Query("SELECT new com.itai.coupons.dto.ExtendedPurchase(p.id,p.user.id, p.coupon.id, p.amountOfProducts, p.dateOfPurchase, p.coupon.couponName, p.coupon.couponDescription, p.coupon.couponPrice, p.coupon.startDate, p.coupon.endDate, p.coupon.company.id, p.coupon.company.companyName, p.user.userName,  p.coupon.category.id) " +
-            "FROM PurchaseEntity p where p.user.id=userId")
+            "FROM PurchaseEntity p where p.user.id=:userId")
     List<ExtendedPurchase> getAllPurchasesByUserId(int userId);
 
     @Query("SELECT new com.itai.coupons.dto.ExtendedPurchase(p.id,p.user.id, p.coupon.id, p.amountOfProducts, p.dateOfPurchase, p.coupon.couponName, p.coupon.couponDescription, p.coupon.couponPrice, p.coupon.startDate, p.coupon.endDate, p.coupon.company.id, p.coupon.company.companyName, p.user.userName,  p.coupon.category.id) " +

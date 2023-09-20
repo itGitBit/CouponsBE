@@ -26,7 +26,6 @@ public class UsersController {
 
     @PostMapping
     public void addUser(@RequestBody User user) throws ApplicationException {
-        System.out.println(user.toString());
         usersLogic.addUser(user);
     }
 
